@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant - NextGen AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">NextGen.ai</div>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('ai_exam_prep') }}">Exam Prep</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+    </nav>
+</header>
+
+<section class="page-section ai-page">
+    <h1>AI Chat Assistant</h1>
+    {% if llm_enabled %}
+    <p class="mode-note">LLM chat mode is active.</p>
+    {% endif %}
+
+    <div class="chat-box">
+        {% if history %}
+            {% for msg in history %}
+            <div class="chat-msg {{ msg.role }}">
+                <strong>{{ "You" if msg.role == "user" else "AI" }}:</strong>
+                <p>{{ msg.content }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="chat-msg assistant">
+                <strong>AI:</strong>
+                <p>Tell me your goal and constraints. I will suggest a practical plan.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <form method="POST" class="ai-form">
+        <textarea name="message" rows="4" placeholder="Type your question..." required></textarea>
+        <button type="submit" class="btn-primary">Send</button>
+    </form>
+
+    <form method="POST" class="clear-form">
+        <input type="hidden" name="action" value="clear">
+        <button type="submit" class="btn-outline">Clear Chat</button>
+    </form>
+</section>
+
+</body>
+</html>

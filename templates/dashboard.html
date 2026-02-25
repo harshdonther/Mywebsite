@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NextGen AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">NextGen.ai</div>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+    </nav>
+</header>
+
+<section class="page-section">
+    <div class="dashboard-hero">
+        <img class="dashboard-ai-banner" src="https://media.istockphoto.com/id/1448152453/vector/big-data-technology-and-data-science-illustration-data-flow-concept-querying-analysing.jpg?s=1024x1024&w=is&k=20&c=INMsT5od0nLuKgWn0y_1UkzhuJL_LDs7yF3aZh-_dqY=">
+        <div class="dashboard-hero-text">
+            <h1>Hi, {{ user_name }}!</h1>
+            <p>You are logged in as {{ user_email }}</p>
+            <p id="login-status-toast" class="login-status-toast">{{ user_name }} is login</p>
+        </div>
+    </div>
+
+    <div class="tool-grid">
+        <div class="tool-card">
+            <h3>AI Chat Assistant</h3>
+            <p>Ask anything and get guided responses like a chat assistant.</p>
+            <a href="{{ url_for('ai_chat') }}" class="btn-primary">Open Chat</a>
+        </div>
+        <div class="tool-card">
+            <h3>AI Ad Copy</h3>
+            <p>Generate headlines, ad text, and CTA for campaigns.</p>
+            <a href="{{ url_for('ai_ad_copy') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>AI Email Writer</h3>
+            <p>Create ready-to-send outreach emails in one click.</p>
+            <a href="{{ url_for('ai_email_writer') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>AI Keyword Ideas</h3>
+            <p>Get SEO keyword suggestions for your niche.</p>
+            <a href="{{ url_for('ai_keyword_ideas') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>AI Support Reply</h3>
+            <p>Draft empathetic replies for customer messages.</p>
+            <a href="{{ url_for('ai_support_reply') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>AI Exam Prep</h3>
+            <p>Share syllabus and get priority topics + practice questions.</p>
+            <a href="{{ url_for('ai_exam_prep') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Resume Bullet Generator</h3>
+            <p>Create impactful resume points from your work details.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='resume-bullets') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Study Planner</h3>
+            <p>Build a weekly schedule from your subjects and time.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='study-planner') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Budget Planner</h3>
+            <p>Plan monthly spending and savings clearly.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='budget-planner') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Meal Planner</h3>
+            <p>Generate a practical daily meal outline.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='meal-planner') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Workout Builder</h3>
+            <p>Create a weekly workout split by goal.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='workout-builder') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Trip Itinerary Planner</h3>
+            <p>Get a day-wise trip plan based on destination.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='trip-planner') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Meeting Notes Organizer</h3>
+            <p>Convert rough notes into summary and actions.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='meeting-notes') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Code Explainer</h3>
+            <p>Understand code snippets in plain language.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='code-explainer') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Social Caption Generator</h3>
+            <p>Create captions and hashtags for your posts.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='caption-generator') }}" class="btn-primary">Open Tool</a>
+        </div>
+        <div class="tool-card">
+            <h3>Habit Coach</h3>
+            <p>Create a 21-day habit consistency plan.</p>
+            <a href="{{ url_for('ai_generic_tool', tool_key='habit-coach') }}" class="btn-primary">Open Tool</a>
+        </div>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

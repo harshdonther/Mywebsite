@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Support Reply - NextGen AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">NextGen.ai</div>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('ai_ad_copy') }}">Ad Copy</a>
+        <a href="{{ url_for('ai_email_writer') }}">Email Writer</a>
+        <a href="{{ url_for('ai_keyword_ideas') }}">Keyword Ideas</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+    </nav>
+</header>
+
+<section class="page-section ai-page">
+    <h1>AI Support Reply Assistant</h1>
+    <form method="POST" class="ai-form">
+        <input type="text" name="customer_name" placeholder="Customer name (optional)">
+        <textarea name="issue" rows="5" placeholder="Paste the customer issue here..." required></textarea>
+        <button type="submit" class="btn-primary">Generate Reply</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <h3>Generated Reply</h3>
+        <pre class="result-pre">{{ result }}</pre>
+    </div>
+    {% endif %}
+</section>
+
+</body>
+</html>
